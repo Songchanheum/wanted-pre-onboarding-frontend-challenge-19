@@ -1,9 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
 import TodoButton from "@/components/Atomic/TodoButton";
 import TodoInput from "@/components/Atomic/TodoInput";
 import TodoComponent from "@/components/Molecular/TodoComponent";
-import { addTodo, store } from "@/store";
-import { useState } from "react";
 import { TodoListType } from "@/types";
 import useReduxAction from "@/hooks/useReduxAction";
 
@@ -11,7 +8,7 @@ const TodoListComponent = () => {
   const { input, setInput, todos, addTodoEvent } = useReduxAction();
 
   return (
-    <main className="border-2 rounded-2xl w-[600px] h-fit flex flex-col pb-4">
+    <main className="border-2 rounded-2xl w-[600px] h-fit flex flex-col py-4">
       <h1 className="text-2xl font-bold">TODO LIST</h1>
       <section className="flex w-full px-2 mt-10 gap-2">
         <TodoInput

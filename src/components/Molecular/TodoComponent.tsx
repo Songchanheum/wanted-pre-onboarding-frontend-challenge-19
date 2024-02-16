@@ -1,6 +1,5 @@
 import TodoButton from "@/components/Atomic/TodoButton";
 import useReduxAction from "@/hooks/useReduxAction";
-import { deleteTodo } from "@/store";
 
 const TodoComponent = ({ title, id }: { title: string; id: string }) => {
   const { deleteTodoEvent } = useReduxAction();
