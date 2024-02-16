@@ -1,1 +1,2 @@
-export { default as store } from "./store.js";
+export { default as store } from "./store";
+export * from "./action";
