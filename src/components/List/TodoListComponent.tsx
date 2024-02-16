@@ -5,19 +5,10 @@ import TodoComponent from "@/components/Molecular/TodoComponent";
 import { addTodo, store } from "@/store";
 import { useState } from "react";
 import { TodoListType } from "@/types";
+import useReduxAction from "@/hooks/useReduxAction";
 
 const TodoListComponent = () => {
-  const dispatch = useDispatch();
-  const todos = useSelector(
-    (state: ReturnType<typeof store.getState>) => state.todos.todos
-  );
-
-  const [inputText, setInputText] = useState<string>("");
-
-  const addTodoEvent = () => {
-    dispatch(addTodo(inputText));
-    setInputText("");
-  };
+  const { input, setInput, todos, addTodoEvent } = useReduxAction();
 
   return (
     <main className="border-2 rounded-2xl w-[600px] h-fit flex flex-col pb-4">
@@ -25,8 +16,8 @@ const TodoListComponent = () => {
       <section className="flex w-full px-2 mt-10 gap-2">
         <TodoInput
           className="w-[80%] border-none outline-none px-4 py-3 rounded-full bg-gray-100"
-          onChange={(e) => setInputText(e.target.value)}
-          value={inputText}
+          onChange={(e) => setInput(e.target.value)}
+          value={input}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               addTodoEvent();
